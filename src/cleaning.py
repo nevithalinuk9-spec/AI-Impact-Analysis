@@ -21,4 +21,12 @@ def diagnosis(df: pd.DataFrame=df) -> None:
     for key, value in report.items():
         print(f"\n=={key}==\n")
         print(value)
+    
+    # Check if the str column types can be numeric
+    for col in df.select_dtypes(include="str").columns:
+        try:
+            pd.to_numeric(df[col])
+            print(f"{col}: could be numeric")
+        except (ValueError, TypeError):
+            pass
 diagnosis()
