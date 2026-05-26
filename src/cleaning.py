@@ -4,22 +4,21 @@ import data_loader as ld
 df = ld.load_data()
 
 def diagnosis(df: pd.DataFrame=df) -> None: 
-    # Shape and types
-    print(df.shape)
-    print(df.dtypes)
+    report = {
+        "shape": df.shape,
+        "dtypes": df.dtypes,
+        "missing_per_column": df.isnull().sum(),
+        "missing_pct": df.isnull().mean().mul(100).round(2),
+        "duplicate_rows": df.duplicated().sum(),
+        "numeric_summary": df.describe(),
+    }
 
-    # Missing values
-    print(df.isnull().sum())
-
-    # Duplicates
-    print(f"Duplicate rows: {df.duplicated().sum()}")
-
-    # Summary stats for numeric columns
-    print(df.describe())
-
-    # Unique values in categorical columns
-    for col in df.select_dtypes(include="str").columns:
-        print(f"\n{col}: {df[col].nunique()} unique values")
-        print(df[col].value_counts().head())
-
+    # Per column unique value counts per catergorical columns
+    str_cols = df.select_dtypes(include="str").columns
+    report["unique_counts"] = {col: df[col].nunique() for col in str_cols}
+    # Memory footprint
+    report["memory_mb"] = round(df.memory_usage(deep=True).sum() / 1024**2, 2)
+    for key, value in report.items():
+        print(f"\n=={key}==\n")
+        print(value)
 diagnosis()
