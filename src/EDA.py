@@ -1,6 +1,7 @@
 import pandas as pd
 import numpy as np
 import data_loader as dl
+import cleaning as cl
 
 df = dl.load_data()
 #for col in df.columns:
@@ -20,6 +21,7 @@ Found out that,
 #print(df.info())
 #print(df["Job_Title"].value_counts())
 
-
-
+def correlation_analysis(df: pd.DataFrame=df) -> pd.DataFrame:
+    numeric_cols = df.select_dtypes(include=[np.number]).columns
+    return df[numeric_cols].corr()
 
