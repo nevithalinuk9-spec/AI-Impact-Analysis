@@ -30,3 +30,14 @@ def diagnosis(df: pd.DataFrame=df) -> None:
         except (ValueError, TypeError):
             pass
 diagnosis()
+
+# Convert categorical to numeric using factorize
+columns = ["Education_Level", "Remote_Work_Possibility", "Automation_Level", "Company_Size", "AI_Tool_Usage", "Upskilling_Needed", "Hiring_Trend_2026"] 
+def categorical_to_numeric(df: pd.DataFrame=df, columns: list=columns) -> pd.DataFrame:
+    df_copy = df.copy()
+    # selecting only the catergorical columns and applying factorize to convert them to numeric
+    for col in columns:
+        df_copy[col] = pd.factorize(df_copy[col])[0]
+    return df_copy
+
+df1 = categorical_to_numeric()
