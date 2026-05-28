@@ -41,3 +41,11 @@ def categorical_to_numeric(df: pd.DataFrame=df, columns: list=columns) -> pd.Dat
     return df_copy
 
 df1 = categorical_to_numeric()
+
+# Split the comma-separated string into a list, then explode
+def split_and_explode(df: pd.DataFrame=df, column: str="Required_Skills") -> pd.DataFrame:
+    df_copy = df.copy()
+    df_copy[column] = df_copy[column].str.split(',').apply(
+        lambda lst: [s.strip() for s in lst] if isinstance(lst, list) else lst
+    )
+    return df_copy.explode(column)

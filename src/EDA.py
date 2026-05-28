@@ -3,11 +3,11 @@ import numpy as np
 import data_loader as dl
 
 df = dl.load_data()
-for col in df.columns:
-    print(f"\n{df[col].value_counts()}")
+#for col in df.columns:
+ #   print(f"\n{df[col].value_counts()}")
 
-print(df["Job_Growth_2030"].describe().round(2))
-print(df[["AI_Replacement_Risk", "Future_Demand_Score", "Performance_Score", "Job_Satisfaction"]].describe().round(2))
+#print(df["Job_Growth_2030"].describe().round(2))
+#print(df[["AI_Replacement_Risk", "Future_Demand_Score", "Performance_Score", "Job_Satisfaction"]].describe().round(2))
 
 """
 Found out that,
@@ -17,3 +17,9 @@ Found out that,
 4. Job_Satisfaction -> 1.0 - 5.0 (5.0 being the highest)
 5. Required_Skills has multiple values per column therefore it needs to be exploded when analysing or visualizing
 """
+#print(df.info())
+#print(df["Job_Title"].value_counts())
+
+
+
+
