@@ -62,6 +62,7 @@ def onehot_encode(df: pd.DataFrame, columns: list=onehot_cols) -> pd.DataFrame:
   #print(f"One-hot encoding applied to columns: {columns}")
   return df
 
+# Multi-label encoding for Required_Skills
 def multi_label_encode(df: pd.DataFrame, column: str="Required_Skills") -> pd.DataFrame:
     skills = df["Required_Skills"].str.split(",").apply(lambda l: [s.strip() for s in l])
     mlb = MultiLabelBinarizer()
@@ -71,14 +72,15 @@ def multi_label_encode(df: pd.DataFrame, column: str="Required_Skills") -> pd.Da
     df = pd.concat([df, skills_df], axis=1)
     return df
     
+numeric = df.select_dtypes(include="number").drop(columns=["AI_Replacement_Risk"])
 
-df = binary_encode(df)
-df = ordinal_encode(df)
-print(df.shape)
-df = onehot_encode(df)
-print(df.filter(regex="^(Industry|Country|Job_Title|Remote_Work_Possibility)_").shape)
-df = multi_label_encode(df)
-print(df.filter(regex="^skill_").shape)
+def predictors(df: pd.DataFrame, numeric_df: pd.DataFrame=numeric) -> pd.DataFrame:
+  be = binary_encode(df)[["Upskilling_Needed"]]
+  ord = ordinal_encode(df)[ordinal_cols]
+  ohe = onehot_encode(df).filter(regex="^(Industry|Country|Job_Title|Remote_Work_Possibility)_")
+  mle = multi_label_encode(df).filter(regex="^skill_")
+  new_df = pd.concat([be, ord, ohe, mle, numeric_df], axis=1)
+  print(new_df.shape)
+  return new_df
 
-
-
+predictors(df)
