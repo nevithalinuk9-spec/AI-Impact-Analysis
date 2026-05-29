@@ -62,10 +62,23 @@ def onehot_encode(df: pd.DataFrame, columns: list=onehot_cols) -> pd.DataFrame:
   #print(f"One-hot encoding applied to columns: {columns}")
   return df
 
+def multi_label_encode(df: pd.DataFrame, column: str="Required_Skills") -> pd.DataFrame:
+    skills = df["Required_Skills"].str.split(",").apply(lambda l: [s.strip() for s in l])
+    mlb = MultiLabelBinarizer()
+    skills_df = pd.DataFrame(mlb.fit_transform(skills),
+                             columns=[f"skill_{s}" for s in mlb.classes_],
+                             index=df.index)
+    df = pd.concat([df, skills_df], axis=1)
+    return df
+    
+
 df = binary_encode(df)
 df = ordinal_encode(df)
 print(df.shape)
 df = onehot_encode(df)
 print(df.filter(regex="^(Industry|Country|Job_Title|Remote_Work_Possibility)_").shape)
+df = multi_label_encode(df)
+print(df.filter(regex="^skill_").shape)
+
 
 
