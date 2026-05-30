@@ -83,10 +83,8 @@ def predictors(df: pd.DataFrame, numeric_df: pd.DataFrame=numeric) -> pd.DataFra
     ohe = onehot_encode(df).filter(regex="^(Industry|Country|Job_Title|Remote_Work_Possibility)_")
     mle = multi_label_encode(df).filter(regex="^skill_")
     new_df = pd.concat([be, ord, ohe, mle, numeric_df], axis=1)
-    print(new_df.shape)
     out_dir = Path(__file__).parent.parent / "data" / "processed"
     out_dir.mkdir(parents=True, exist_ok=True)
     new_df.to_csv(out_dir / "AI_Impact_Encoded.csv", index=False)
     return new_df
 
-predictors(df)

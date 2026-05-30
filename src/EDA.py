@@ -12,11 +12,11 @@ def EDA(df: pd.DataFrame=df) -> None:
     print("\n==Numeric columns summary==\n")
     print(df.describe().round(2))
     print("\n==Categorical columns summary==\n")
-    print(df.describe(include="str").T)
+    print(df.describe(include="object").T)
     print("\n==Missing values summary==\n")
     print(df.isnull().sum())
     print("\n==Unique values per categorical column==\n")
-    for col in df.select_dtypes(include="str").columns:
+    for col in df.select_dtypes(include="object").columns:
         print(f"{col}: {df[col].nunique()} unique values")
     print("\n==Ranges of key columns==\n")
     # Ranges columns summary

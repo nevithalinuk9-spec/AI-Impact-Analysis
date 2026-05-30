@@ -14,7 +14,7 @@ def diagnosis(df: pd.DataFrame=df) -> None:
     }
 
     # Per column unique value counts per catergorical columns
-    str_cols = df.select_dtypes(include="str").columns
+    str_cols = df.select_dtypes(include="object").columns
     report["unique_counts"] = {col: df[col].nunique() for col in str_cols}
     # Memory footprint
     report["memory_mb"] = round(df.memory_usage(deep=True).sum() / 1024**2, 2)
@@ -23,14 +23,13 @@ def diagnosis(df: pd.DataFrame=df) -> None:
         print(value)
     
     # Check if the str column types can be numeric
-    for col in df.select_dtypes(include="str").columns:
+    for col in df.select_dtypes(include="object").columns:
         try:
             pd.to_numeric(df[col])
             print(f"{col}: could be numeric")
         except (ValueError, TypeError):
             pass
-diagnosis()
-
+        
 # Convert categorical to numeric using factorize
 columns = ["Education_Level", "Remote_Work_Possibility", "Automation_Level", "Company_Size", "AI_Tool_Usage", "Upskilling_Needed", "Hiring_Trend_2026"] 
 def categorical_to_numeric(df: pd.DataFrame=df, columns: list=columns) -> pd.DataFrame:
