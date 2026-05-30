@@ -10,6 +10,9 @@ Strategy:
   - Dropped           : Employee_ID                       (pure identifier)
 """
 
+from zipfile import Path
+from pathlib import Path
+
 import pandas as pd
 from sklearn.compose import ColumnTransformer
 from sklearn.preprocessing import OneHotEncoder, OrdinalEncoder
@@ -75,12 +78,15 @@ def multi_label_encode(df: pd.DataFrame, column: str="Required_Skills") -> pd.Da
 numeric = df.select_dtypes(include="number").drop(columns=["AI_Replacement_Risk"])
 
 def predictors(df: pd.DataFrame, numeric_df: pd.DataFrame=numeric) -> pd.DataFrame:
-  be = binary_encode(df)[["Upskilling_Needed"]]
-  ord = ordinal_encode(df)[ordinal_cols]
-  ohe = onehot_encode(df).filter(regex="^(Industry|Country|Job_Title|Remote_Work_Possibility)_")
-  mle = multi_label_encode(df).filter(regex="^skill_")
-  new_df = pd.concat([be, ord, ohe, mle, numeric_df], axis=1)
-  print(new_df.shape)
-  return new_df
+    be = binary_encode(df)[["Upskilling_Needed"]]
+    ord = ordinal_encode(df)[ordinal_cols]
+    ohe = onehot_encode(df).filter(regex="^(Industry|Country|Job_Title|Remote_Work_Possibility)_")
+    mle = multi_label_encode(df).filter(regex="^skill_")
+    new_df = pd.concat([be, ord, ohe, mle, numeric_df], axis=1)
+    print(new_df.shape)
+    out_dir = Path(__file__).parent.parent / "data" / "processed"
+    out_dir.mkdir(parents=True, exist_ok=True)
+    new_df.to_csv(out_dir / "AI_Impact_Encoded.csv", index=False)
+    return new_df
 
 predictors(df)
