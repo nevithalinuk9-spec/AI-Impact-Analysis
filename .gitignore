@@ -1,2 +1,3 @@
 AI-Impact
 *.csv
+__pycache__/
