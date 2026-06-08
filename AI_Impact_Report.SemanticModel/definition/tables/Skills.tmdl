@@ -1,0 +1,37 @@
+table Skills
+	lineageTag: ccc9166e-8b7a-457e-b106-be55dfb56ab3
+
+	column Employee_ID
+		dataType: string
+		lineageTag: bbcd3d3f-d8c3-4275-91bb-4a594224eeb0
+		summarizeBy: none
+		sourceColumn: Employee_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Skills
+		dataType: string
+		lineageTag: 2d48ee4e-a5ba-4b45-9264-9405b612e2d2
+		summarizeBy: none
+		sourceColumn: Skills
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Skills = m
+		mode: import
+		source =
+				let
+				    Source = AI_Impact_Raw,
+				    #"Removed Other Columns" = Table.SelectColumns(Source,{"Employee_ID", "Required_Skills"}),
+				    #"Split Column by Delimiter" = Table.ExpandListColumn(Table.TransformColumns(#"Removed Other Columns", {{"Required_Skills", Splitter.SplitTextByDelimiter(",", QuoteStyle.Csv), let itemType = (type nullable text) meta [Serialized.Text = true] in type {itemType}}}), "Required_Skills"),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Split Column by Delimiter",{{"Required_Skills", type text}}),
+				    #"Trimmed Text" = Table.TransformColumns(#"Changed Type",{{"Required_Skills", Text.Trim, type text}}),
+				    #"Lowercased Text" = Table.TransformColumns(#"Trimmed Text",{{"Required_Skills", Text.Lower, type text}}),
+				    #"Renamed Columns" = Table.RenameColumns(#"Lowercased Text",{{"Required_Skills", "Skills"}})
+				in
+				    #"Renamed Columns"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

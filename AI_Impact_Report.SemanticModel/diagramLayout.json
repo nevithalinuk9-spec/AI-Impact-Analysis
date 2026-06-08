@@ -1,0 +1,74 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 0,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 623.9881083063176,
+            "y": 0
+          },
+          "nodeIndex": "AI_Impact_Raw",
+          "nodeLineageTag": "799a8bdf-838e-4139-9d6f-a263a54c6aa8",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 2
+        },
+        {
+          "location": {
+            "x": 0,
+            "y": 407.15941511428338
+          },
+          "nodeIndex": "Skills",
+          "nodeLineageTag": "ccc9166e-8b7a-457e-b106-be55dfb56ab3",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 1
+        },
+        {
+          "location": {
+            "x": 907.9881083063176,
+            "y": 215.57970755714166
+          },
+          "nodeIndex": "Measurestbl",
+          "nodeLineageTag": "6f2d3cb1-1e3c-44e0-a3cf-2a40557da904",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1191.9881083063176,
+            "y": 179.57970755714166
+          },
+          "nodeIndex": "model_metrics",
+          "nodeLineageTag": "33ba17cd-2c9e-43d3-8a8f-0f73b46b71ac",
+          "size": {
+            "height": 176,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "All tables",
+      "zoomValue": 50.346892102823269,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "All tables",
+  "defaultDiagram": "All tables"
+}

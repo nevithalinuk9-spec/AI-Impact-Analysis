@@ -1,0 +1,52 @@
+table model_metrics
+	lineageTag: 33ba17cd-2c9e-43d3-8a8f-0f73b46b71ac
+
+	column Model
+		dataType: string
+		lineageTag: 550526e7-6001-4d85-ad77-5f69332e8e4b
+		summarizeBy: none
+		sourceColumn: Model
+
+		annotation SummarizationSetBy = Automatic
+
+	column MAE
+		dataType: double
+		formatString: 0.000
+		lineageTag: 7e6186ac-d0c6-40e9-92a9-fd77868ff75f
+		summarizeBy: sum
+		sourceColumn: MAE
+
+		annotation SummarizationSetBy = Automatic
+
+	column RMSE
+		dataType: double
+		formatString: 0.000
+		lineageTag: 93404d46-e949-4581-82d1-61b4de6a8bbb
+		summarizeBy: sum
+		sourceColumn: RMSE
+
+		annotation SummarizationSetBy = Automatic
+
+	column R2
+		dataType: double
+		formatString: 0.000
+		lineageTag: 16050da3-e20e-4eb2-8cbc-ea6e831c5adb
+		summarizeBy: sum
+		sourceColumn: R2
+
+		annotation SummarizationSetBy = Automatic
+
+	partition model_metrics = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("C:\Users\User\OneDrive\Documents\AI Impact\model_metrics.csv"),[Delimiter=",", Columns=4, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"Model", type text}, {"MAE", type number}, {"RMSE", type number}, {"R2", type number}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

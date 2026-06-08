@@ -1,0 +1,43 @@
+table Measurestbl
+	lineageTag: 6f2d3cb1-1e3c-44e0-a3cf-2a40557da904
+
+	measure 'Avg Replacement Risk' = AVERAGE(AI_Impact_Raw[AI_Replacement_Risk])
+		lineageTag: 2b4a7ecd-7dff-4891-a507-04c7688611e8
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Pct High Automation' =
+			
+			DIVIDE(
+			    CALCULATE(COUNTROWS(AI_Impact_Raw), AI_Impact_Raw[Automation_Level] = "High"),
+			    COUNTROWS(AI_Impact_Raw)
+			)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 3dadd5c8-0142-4dc2-8048-83c346c7ef92
+
+	measure 'Pct Upskilling Needed' =
+			
+			DIVIDE(
+			    CALCULATE(COUNTROWS(AI_Impact_Raw), AI_Impact_Raw[Upskilling_Needed] = "Yes"),
+			    COUNTROWS(AI_Impact_Raw)
+			)
+		formatString: #,0.00%;-#,0.00%;#,0.00%
+		lineageTag: ea8db3b9-08b0-42bd-b5dd-1ec2333171af
+
+	measure 'Avg Future Demand' = AVERAGE(AI_Impact_Raw[Future_Demand_Score])
+		lineageTag: 009c9f47-d5fb-478b-9626-6e26482b0ef9
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition Measurestbl = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i45WMlSKjQUA", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [Column1 = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"Column1", Int64.Type}}),
+				    #"Removed Columns" = Table.RemoveColumns(#"Changed Type",{"Column1"})
+				in
+				    #"Removed Columns"
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,88 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
+  "name": "f8c7bc57714e0081c50c",
+  "position": {
+    "x": 586,
+    "y": 0,
+    "z": 2,
+    "height": 384,
+    "width": 576,
+    "tabOrder": 2
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Skills"
+                    }
+                  },
+                  "Property": "Skills"
+                }
+              },
+              "queryRef": "Skills.Skills",
+              "nativeQueryRef": "Skills"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Measurestbl"
+                    }
+                  },
+                  "Property": "Avg Replacement Risk"
+                }
+              },
+              "queryRef": "Measurestbl.Avg Replacement Risk",
+              "nativeQueryRef": "Avg Replacement Risk"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Skills"
+                        }
+                      },
+                      "Property": "Employee_ID"
+                    }
+                  },
+                  "Function": 5
+                }
+              },
+              "queryRef": "Skills.Employee_ID",
+              "nativeQueryRef": "Count of Employee_ID"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Measurestbl"
+                  }
+                },
+                "Property": "Avg Replacement Risk"
+              }
+            },
+            "direction": "Descending"
+          }
+        ]
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

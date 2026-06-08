@@ -1,0 +1,75 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
+  "name": "e58a1d05113e88453702",
+  "position": {
+    "x": 464,
+    "y": 0,
+    "z": 1000,
+    "height": 432,
+    "width": 816,
+    "tabOrder": 1000
+  },
+  "visual": {
+    "visualType": "scatterChart",
+    "query": {
+      "queryState": {
+        "Series": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "AI_Impact_Raw"
+                    }
+                  },
+                  "Property": "Risk Tier"
+                }
+              },
+              "queryRef": "AI_Impact_Raw.Risk Tier",
+              "nativeQueryRef": "Risk Tier"
+            }
+          ]
+        },
+        "X": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "AI_Impact_Raw"
+                    }
+                  },
+                  "Property": "Performance_Score"
+                }
+              },
+              "queryRef": "AI_Impact_Raw.Performance_Score",
+              "nativeQueryRef": "Performance_Score",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "AI_Impact_Raw"
+                    }
+                  },
+                  "Property": "Job_Satisfaction"
+                }
+              },
+              "queryRef": "AI_Impact_Raw.Job_Satisfaction",
+              "nativeQueryRef": "Job_Satisfaction"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

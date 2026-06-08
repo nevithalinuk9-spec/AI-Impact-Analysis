@@ -1,0 +1,85 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
+  "name": "db091cc4e78737c53c0d",
+  "position": {
+    "x": 464,
+    "y": 432,
+    "z": 1002,
+    "height": 288,
+    "width": 816,
+    "tabOrder": 1002
+  },
+  "visual": {
+    "visualType": "clusteredColumnChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "AI_Impact_Raw"
+                    }
+                  },
+                  "Property": "Remote_Work_Possibility"
+                }
+              },
+              "queryRef": "AI_Impact_Raw.Remote_Work_Possibility",
+              "nativeQueryRef": "Remote_Work_Possibility",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "AI_Impact_Raw"
+                        }
+                      },
+                      "Property": "Remote_Work_Possibility"
+                    }
+                  },
+                  "Function": 5
+                }
+              },
+              "queryRef": "CountNonNull(AI_Impact_Raw.Remote_Work_Possibility)",
+              "nativeQueryRef": "Count of Remote_Work_Possibility"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Aggregation": {
+                "Expression": {
+                  "Column": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "AI_Impact_Raw"
+                      }
+                    },
+                    "Property": "Remote_Work_Possibility"
+                  }
+                },
+                "Function": 5
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

@@ -1,0 +1,259 @@
+table AI_Impact_Raw
+	lineageTag: 799a8bdf-838e-4139-9d6f-a263a54c6aa8
+
+	column Employee_ID
+		dataType: string
+		lineageTag: 553e9869-d098-4fc7-abcc-5cd8b9634ebf
+		summarizeBy: none
+		sourceColumn: Employee_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Job_Title
+		dataType: string
+		lineageTag: 32595bd3-af17-4f98-9f77-2b9406e6b1ed
+		summarizeBy: none
+		sourceColumn: Job_Title
+
+		annotation SummarizationSetBy = Automatic
+
+	column Industry
+		dataType: string
+		lineageTag: 24045a52-48b6-4820-9cec-61e04a2674c2
+		summarizeBy: none
+		sourceColumn: Industry
+
+		annotation SummarizationSetBy = Automatic
+
+	column Country
+		dataType: string
+		lineageTag: 288274a5-a597-4d43-aa3a-5b968116fc0f
+		dataCategory: Country
+		summarizeBy: none
+		sourceColumn: Country
+
+		annotation SummarizationSetBy = Automatic
+
+	column Education_Level
+		dataType: string
+		lineageTag: 1d9a7a88-b765-46e1-b65f-4a842fba47ef
+		summarizeBy: none
+		sourceColumn: Education_Level
+		sortByColumn: Education_Level_Sort
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column Years_Experience
+		dataType: int64
+		formatString: 0
+		lineageTag: 2186021e-41d7-41b5-b421-6b6273086cd0
+		summarizeBy: none
+		sourceColumn: Years_Experience
+
+		annotation SummarizationSetBy = Automatic
+
+	column AI_Replacement_Risk
+		dataType: double
+		lineageTag: 3f1736a8-cde6-4ad5-a707-cef63b2f846e
+		summarizeBy: none
+		sourceColumn: AI_Replacement_Risk
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Future_Demand_Score
+		dataType: double
+		lineageTag: 9d853f78-2f4a-468e-ba11-935d9269d912
+		summarizeBy: none
+		sourceColumn: Future_Demand_Score
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Remote_Work_Possibility
+		dataType: string
+		lineageTag: a68d0e5c-c5be-4282-9227-30e56ad37168
+		summarizeBy: none
+		sourceColumn: Remote_Work_Possibility
+
+		annotation SummarizationSetBy = Automatic
+
+	column Average_Salary_USD
+		dataType: int64
+		formatString: 0
+		lineageTag: 064c42eb-bb75-47bc-9e0b-4a48889b2c43
+		summarizeBy: none
+		sourceColumn: Average_Salary_USD
+
+		annotation SummarizationSetBy = Automatic
+
+	column Required_Skills
+		dataType: string
+		lineageTag: 51c34360-acaf-49b3-b473-c62b026e5097
+		summarizeBy: none
+		sourceColumn: Required_Skills
+
+		annotation SummarizationSetBy = Automatic
+
+	column Automation_Level
+		dataType: string
+		lineageTag: 60755401-4bad-4137-91a0-1a06571f4de7
+		summarizeBy: none
+		sourceColumn: Automation_Level
+		sortByColumn: Automation_Level_Sort
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column Job_Growth_2030
+		dataType: int64
+		formatString: 0
+		lineageTag: 18dd85d0-96fb-4af5-bd5c-25a1e55ee799
+		summarizeBy: none
+		sourceColumn: Job_Growth_2030
+
+		annotation SummarizationSetBy = Automatic
+
+	column Work_Hours_Per_Week
+		dataType: int64
+		formatString: 0
+		lineageTag: 68c458da-1eb2-4d9b-bee7-eb0254b75450
+		summarizeBy: none
+		sourceColumn: Work_Hours_Per_Week
+
+		annotation SummarizationSetBy = Automatic
+
+	column Company_Size
+		dataType: string
+		lineageTag: 1c6813e2-7a94-41cd-9f4f-5fc9a0724b6e
+		summarizeBy: none
+		sourceColumn: Company_Size
+		sortByColumn: Company_Size_Sort
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column AI_Tool_Usage
+		dataType: string
+		lineageTag: 336db51d-1db1-44b3-949e-bb461fc820df
+		summarizeBy: none
+		sourceColumn: AI_Tool_Usage
+
+		annotation SummarizationSetBy = Automatic
+
+	column Performance_Score
+		dataType: double
+		lineageTag: ec7ae9b7-feee-43dc-83cb-d6864434604d
+		summarizeBy: none
+		sourceColumn: Performance_Score
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Upskilling_Needed
+		dataType: string
+		lineageTag: abeb5fe6-96f8-40c5-a651-74f9528ec793
+		summarizeBy: none
+		sourceColumn: Upskilling_Needed
+
+		annotation SummarizationSetBy = Automatic
+
+	column Job_Satisfaction
+		dataType: double
+		lineageTag: 8cbea11e-8073-4878-8250-c23283e8699c
+		summarizeBy: none
+		sourceColumn: Job_Satisfaction
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Hiring_Trend_2026
+		dataType: string
+		lineageTag: ca6f21a8-421b-40b0-af77-6a4889611397
+		summarizeBy: none
+		sourceColumn: Hiring_Trend_2026
+		sortByColumn: Hiring_Trend_Sort
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column Hiring_Trend_Sort
+		dataType: int64
+		formatString: 0
+		lineageTag: a2ea5a04-a196-485d-88ab-71f9fb02bb97
+		summarizeBy: none
+		sourceColumn: Hiring_Trend_Sort
+
+		annotation SummarizationSetBy = Automatic
+
+	column Automation_Level_Sort
+		dataType: int64
+		formatString: 0
+		lineageTag: 92aa241f-6af2-4dad-994f-6a0eb96652bc
+		summarizeBy: none
+		sourceColumn: Automation_Level_Sort
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Risk Tier' =
+			
+			SWITCH(
+			    TRUE(),
+			    AI_Impact_Raw[AI_Replacement_Risk] > 0.66, "High",
+			    AI_Impact_Raw[AI_Replacement_Risk] > 0.33, "Medium",
+			    "Low"
+			)
+		lineageTag: 8074771c-ddaf-4e11-a998-8ebc142f093a
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column Education_Level_Sort
+		dataType: int64
+		formatString: 0
+		lineageTag: 6133d143-0592-422e-aed9-981abdc28a76
+		summarizeBy: none
+		sourceColumn: Education_Level_Sort
+
+		annotation SummarizationSetBy = Automatic
+
+	column Company_Size_Sort
+		dataType: int64
+		formatString: 0
+		lineageTag: 9926ae27-49e0-4828-862e-7f21cad01351
+		summarizeBy: none
+		sourceColumn: Company_Size_Sort
+
+		annotation SummarizationSetBy = Automatic
+
+	partition AI_Impact_Raw = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("C:\Users\User\OneDrive\Documents\AI Impact\data\raw\AI_Impact_Raw.csv"),[Delimiter=",", Columns=20, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"Employee_ID", type text}, {"Job_Title", type text}, {"Industry", type text}, {"Country", type text}, {"Education_Level", type text}, {"Years_Experience", Int64.Type}, {"AI_Replacement_Risk", type number}, {"Future_Demand_Score", type number}, {"Remote_Work_Possibility", type text}, {"Average_Salary_USD", Int64.Type}, {"Required_Skills", type text}, {"Automation_Level", type text}, {"Job_Growth_2030", Int64.Type}, {"Work_Hours_Per_Week", Int64.Type}, {"Company_Size", type text}, {"AI_Tool_Usage", type text}, {"Performance_Score", type number}, {"Upskilling_Needed", type text}, {"Job_Satisfaction", type number}, {"Hiring_Trend_2026", type text}}),
+				    #"Added Conditional Column" = Table.AddColumn(#"Changed Type", "Hiring_Trend_Sort", each if [Hiring_Trend_2026] = "Declining" then 1 else if [Hiring_Trend_2026] = "Stable" then 2 else 3),
+				    #"Changed Type1" = Table.TransformColumnTypes(#"Added Conditional Column",{{"Hiring_Trend_Sort", Int64.Type}}),
+				    #"Added Conditional Column1" = Table.AddColumn(#"Changed Type1", "Automation_Level_Sort", each if [Automation_Level] = "Low" then 1 else if [Automation_Level] = "Medium" then 2 else 3),
+				    #"Changed Type2" = Table.TransformColumnTypes(#"Added Conditional Column1",{{"Automation_Level_Sort", Int64.Type}}),
+				    #"Added Conditional Column2" = Table.AddColumn(#"Changed Type2", "Education_Level_Sort", each if [Education_Level] = "High School" then 1 else if [Education_Level] = "Bachelor" then 2 else if [Education_Level] = "Masters" then 3 else 4),
+				    #"Changed Type3" = Table.TransformColumnTypes(#"Added Conditional Column2",{{"Education_Level_Sort", Int64.Type}}),
+				    #"Added Conditional Column3" = Table.AddColumn(#"Changed Type3", "Company_Size_Sort", each if [Company_Size] = "Startup" then 1 else if [Company_Size] = "Medium" then 2 else 3),
+				    #"Changed Type4" = Table.TransformColumnTypes(#"Added Conditional Column3",{{"Company_Size_Sort", Int64.Type}})
+				in
+				    #"Changed Type4"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,4 @@
+relationship AutoDetected_05d3b290-7569-4e97-8bb1-735176254fc6
+	fromColumn: Skills.Employee_ID
+	toColumn: AI_Impact_Raw.Employee_ID
+
