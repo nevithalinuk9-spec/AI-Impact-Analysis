@@ -22,6 +22,8 @@ AI Impact/
 │   ├── visualizing.py     # Univariate, bivariate, and heatmap visualizations
 │   ├── encoding.py        # Feature encoding (ordinal, one-hot, binary, multi-label)
 │   └── model_train.py     # Baseline, Linear Regression, and Random Forest regressors
+├── AI_Impact_Report.pbip  # Power BI project file (open with Power BI Desktop)
+├── AI_Impact_Report.Report/  # Power BI report definition (pages, visuals, theme)
 └── README.md
 ```
 
@@ -76,6 +78,25 @@ AI Impact/
 - **Random Forest** — `RandomForestRegressor(n_estimators=200, random_state=42)`
 
 Evaluation metrics: MAE, RMSE, R²
+
+---
+
+## Power BI Report
+
+A 6-page interactive report (`AI_Impact_Report.pbip`) built in Power BI Desktop to visualise the dataset and model results.
+
+| Page | Key Visuals |
+|---|---|
+| 1. Executive Overview | KPI cards — Avg AI Replacement Risk, % High Automation, % Upskilling Needed; donut chart of employee count by Automation Level |
+| 2. Risk by Industry & Job Title | Bar chart — Avg Replacement Risk by Industry; matrix — Job Titles ranked by Avg Replacement Risk; Automation Level slicer |
+| 3. Geographic View | Bar chart — Top 10 countries by employee count (filtered to Declining hiring trends); Industry slicer |
+| 4. Workforce Profile | Bar chart — Upskilling Needed count by Education Level; column chart — employee count by Company Size |
+| 5. Skills Landscape | Horizontal bar chart — most-required skills ranked by employee count (from a dedicated `Skills` table) |
+| 6. Model Performance | Table — MAE, RMSE, and R² for all three models; text callout explaining that all models perform at or near the dummy baseline (R² ≈ 0) due to synthetic data |
+
+**Data sources:** `data/raw/AI_Impact_Raw.csv` (main dataset) and a `model_metrics` table containing the evaluation results from `model_train.py`.
+
+**To open:** Requires Power BI Desktop March 2024 or later (`.pbip` format support).
 
 ---
 
